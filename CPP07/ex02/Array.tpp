@@ -1,4 +1,4 @@
-template<typename T>
+template<typename T>;
 Array<T>::Array() : elements(NULL), n(0) {
     std::cout << "Default constructor called. Size: " << n << std::endl;
 }
