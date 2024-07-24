@@ -20,7 +20,7 @@ void iter(T *array, const U size, const V func)
 	}
 }
 
-// fonction pour le printage !!!
+// fonction pour le printage des iter !!!
 template< typename T >
 
 void myPrint(const T& x)
@@ -29,6 +29,7 @@ void myPrint(const T& x)
   return;
 }
 
+// fonction pour le printage des titres !!!
 template< typename T >
 
 void printTitle(const T& text, const Color & color)
