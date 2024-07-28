@@ -44,6 +44,10 @@
     "memory_resource": "cpp",
     "fstream": "cpp",
     "iomanip": "cpp",
-    "*.tpp": "c"
+    "*.tpp": "c",
+    "vector": "cpp",
+    "__split_buffer": "cpp",
+    "array": "cpp",
+    "stack": "cpp"
   }
 }
