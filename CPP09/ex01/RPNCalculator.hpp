@@ -1,18 +1,17 @@
 #pragma once
-
-#include <vector>
+#include <stack>
+#include <stdexcept>
+#include <string>
 #include "Token.hpp"
 
 class RPNCalculator {
   public:
    RPNCalculator();
    ~RPNCalculator();
-   RPNCalculator(const RPNCalculator& other);
    RPNCalculator& operator=(const RPNCalculator& other);
-
-   void pushToken(std::string value);
+   void pushToken(const std::string& value);
    int evaluate();
 
   private:
-   std::vector<Token*> tokens;
+   std::stack<Token*> tokens;
 };

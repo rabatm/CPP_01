@@ -12,9 +12,14 @@ int main(int argc, char* argv[]) {
    RPNCalculator calc;
    std::istringstream iss(argv[1]);
    std::string token;
+   std::stack<std::string> tempStack;
    try {
       while (iss >> token) {
-         calc.pushToken(token);
+         tempStack.push(token);
+      }
+      while (!tempStack.empty()) {
+         calc.pushToken(tempStack.top());
+         tempStack.pop();
       }
       std::cout << calc.evaluate() << std::endl;
    } catch (const std::invalid_argument& e) {
