@@ -15,6 +15,7 @@ class PmergeMe {
 
    void processArgs(int argc, char* argv[]);
    void sortAndPrint();
+   bool checkDoublons();
 
   private:
    template <typename Container>

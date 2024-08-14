@@ -1,5 +1,4 @@
-#info of application
-NAME 		= RPN
+NAME 		= PmergeMe
 SRCSDIR 	= .
 OBJDIR 		= objs
 INCLUDES 	= .

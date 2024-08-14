@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <set>
 #include <sstream>
 
 // Constructeur par défaut
@@ -34,6 +35,10 @@ void PmergeMe::processArgs(int argc, char* argv[]) {
          exit(1);
       }
       intVector.push_back(value);
+      if (!this->checkDoublons()) {
+         throw std::runtime_error("😿 Error: duplicate value");
+         return;
+      }
       intDeque.push_back(value);
    }
 }
@@ -110,4 +115,16 @@ void PmergeMe::sortAndPrint() {
    std::cout << "Time to process a range of " << intVector.size()
              << " elements with std::vector : " << timeVector << " us"
              << std::endl;
+}
+
+bool PmergeMe::checkDoublons() {
+   std::set<int> seen;
+   for (std::vector<int>::const_iterator it = intVector.begin();
+        it != intVector.end(); ++it) {
+      if (seen.find(*it) != seen.end()) {
+         return true;  // Doublon trouvé
+      }
+      seen.insert(*it);
+   }
+   return false;  // Aucun doublon trouvé
 }

@@ -38,13 +38,11 @@ int main(int argc, char *argv[]) {
          std::cerr << headerValue << std::endl;
          std::cerr << "😿 Error: invalid header. Expected 'date | value'"
                    << std::endl;
-         return 1;  // Sortir du programme ou gérer l'erreur comme vous le
-                    // souhaitez
+         return 1;
       }
    } else {
       std::cerr << "😿 Error: unable to read header" << std::endl;
-      return 1;  // Sortir du programme ou gérer l'erreur comme vous le
-                 // souhaitez
+      return 1;
    }
 
    while (std::getline(input, line)) {
@@ -55,9 +53,8 @@ int main(int argc, char *argv[]) {
       std::getline(ss, date, '|');
       std::getline(ss, valueStr);
 
-      // Trim whitespace
-      date.erase(date.find_last_not_of(" \n\r\t") + 1);
-      valueStr.erase(valueStr.find_last_not_of(" \n\r\t") + 1);
+      trim(date);
+      trim(valueStr);
 
       if (!isValidDate(date)) {
          std::cerr << "😿 Error: bad input => " << line << std::endl;
